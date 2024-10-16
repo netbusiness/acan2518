@@ -1,13 +1,12 @@
-## MCP2517FD CAN Controller Library for Arduino (in CAN 2.0B mode)
+## MCP2518FD CAN Controller Library for Arduino (in CAN 2.0B mode)
 
 
 ### Compatibility with the other ACAN libraries
 
 This library is fully compatible with the Teensy 3.x ACAN library https://github.com/pierremolinaro/acan, ACAN2515 library https://github.com/pierremolinaro/acan2515, and the ACAN2517FD library https://github.com/pierremolinaro/acan2517, it uses a very similar API and the same `CANMessage` class for handling messages.
 
-### ACAN2517 library description
-ACAN2517 is a driver for the MCP2517FD CAN Controller, in CAN 2.0B mode. It runs on any Arduino compatible board.
-
+### ACAN2518 library description
+ACAN2518 is a driver for the MCP2518FD CAN Controller, in CAN 2.0B mode. It runs on any Arduino compatible board. This driver does not disable interrupts during SPI transactions which was a necessary workaround for the MCP2517FD controller. This change drops compatibility with the MCP2517FD controller in exchange for more multi-tasking friendly design.
 > The ACAN2517FD library handles the MCP2517FD CAN Controller, in CAN FD mode.
 
 
@@ -86,7 +85,7 @@ The `gSendDate` variable handles sending a CAN message every 2000 ms.
 
 ### Use of Optional Reception Filtering
 
-The MCP2517 CAN Controller implements 32 acceptance masks and 32 acceptance filters. The driver API enables you to fully manage these registers.
+The MCP2518 CAN Controller implements 32 acceptance masks and 32 acceptance filters. The driver API enables you to fully manage these registers.
 
 For example (`LoopBackDemoTeensy3xWithFilters` sketch):
 
